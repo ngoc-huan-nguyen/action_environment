@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: 2020-09-09
+Descriptipn: Create an S3 bucket
+Resources:
+  UdaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: uda-huan-bucket
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt UdaBucket.WebsiteURL
+    Description: URL for website hosted on S3
+
+  S3BucketSecureURL:
+    Value: !GetAtt UdaBucket.DomainName
+    Description: Name of S3 Bucket to hold website content
+
+  
